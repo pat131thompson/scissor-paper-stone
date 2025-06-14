@@ -25,7 +25,7 @@
         );
       } while (![1, 2, 3].includes(playerChoice) || isNaN(playerChoice));
       console.log("Player choice:", playerChoice);
-      2;
+
       // UI for computer choosing...
       alert("The computer is choosing...");
 
@@ -33,10 +33,12 @@
       let computerChoice = Math.floor(Math.random() * 3) + 1;
       console.log("Computer choice:", computerChoice);
 
+      // Convert choices to strings for display
       const choices = ["Scissors", "Paper", "Stone"];
       playerChoice = choices[playerChoice - 1];
       computerChoice = choices[computerChoice - 1];
 
+      // Display choices
       alert(
         "The player chose: " +
           playerChoice +
@@ -44,6 +46,21 @@
           "The Computer chose: " +
           computerChoice
       );
+
+      // Determine the winner.  Logic is as follows
+      if (playerChoice === computerChoice) {
+        alert("It's a tie!" + "\n" + "Refresh the browser to play again!");
+      } else if (
+        (playerChoice === "Scissors" && computerChoice === "Paper") ||
+        (playerChoice === "Paper" && computerChoice === "Stone") ||
+        (playerChoice === "Stone" && computerChoice === "Scissors")
+      ) {
+        alert("The player wins!" + "\n" + "Refresh the browser to play again!");
+      } else {
+        alert(
+          "The computer wins!" + "\n" + "Refresh the browser to play again!"
+        );
+      }
     </script>
   </body>
 </html>
