@@ -9,6 +9,12 @@
     <script>
       console.log("Validating script loading");
 
+      alert(
+        "Let's play a game of Scissors, Paper, Stone!" +
+          "\n" +
+          "Highest score in five rounds wins!"
+      );
+
       // Player choice
       let playerChoice;
       do {
@@ -47,6 +53,7 @@
           computerChoice
       );
 
+      /*
       // Determine the winner.  Logic is as follows
       if (playerChoice === computerChoice) {
         alert("It's a tie!" + "\n" + "Refresh the browser to play again!");
@@ -61,6 +68,35 @@
           "The computer wins!" + "\n" + "Refresh the browser to play again!"
         );
       }
+      */
+
+      // Initialising player and computer scores
+      let playerScore = 0;
+      let computerScore = 0;
+
+      function playRound(playerChoice, computerChoice) {
+        if (playerChoice === computerChoice) {
+          alert("It's a tie!");
+        } else if (
+          (playerChoice === "Scissors" && computerChoice === "Paper") ||
+          (playerChoice === "Paper" && computerChoice === "Stone") ||
+          (playerChoice === "Stone" && computerChoice === "Scissors")
+        ) {
+          playerScore++;
+          alert("The player wins!");
+        } else {
+          computerScore++;
+          alert("The computer wins!");
+        }
+        alert(
+          "Current Score:\nPlayer: " +
+            playerScore +
+            "\nComputer: " +
+            computerScore
+        );
+      }
+
+      playRound(playerChoice, computerChoice);
     </script>
   </body>
 </html>
