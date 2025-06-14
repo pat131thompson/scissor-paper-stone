@@ -53,50 +53,51 @@
           computerChoice
       );
 
-      /*
-      // Determine the winner.  Logic is as follows
-      if (playerChoice === computerChoice) {
-        alert("It's a tie!" + "\n" + "Refresh the browser to play again!");
-      } else if (
-        (playerChoice === "Scissors" && computerChoice === "Paper") ||
-        (playerChoice === "Paper" && computerChoice === "Stone") ||
-        (playerChoice === "Stone" && computerChoice === "Scissors")
-      ) {
-        alert("The player wins!" + "\n" + "Refresh the browser to play again!");
-      } else {
-        alert(
-          "The computer wins!" + "\n" + "Refresh the browser to play again!"
-        );
-      }
-      */
-
-      // Initialising player and computer scores
       let playerScore = 0;
       let computerScore = 0;
+      let rounds = 0;
+      console.log(
+        "Initial Scores - Player:",
+        playerScore,
+        "Computer:",
+        computerScore
+      );
+      console.log("Initial Rounds:", rounds);
 
-      function playRound(playerChoice, computerChoice) {
-        if (playerChoice === computerChoice) {
-          alert("It's a tie!");
-        } else if (
-          (playerChoice === "Scissors" && computerChoice === "Paper") ||
-          (playerChoice === "Paper" && computerChoice === "Stone") ||
-          (playerChoice === "Stone" && computerChoice === "Scissors")
-        ) {
-          playerScore++;
-          alert("The player wins!");
-        } else {
-          computerScore++;
-          alert("The computer wins!");
+      // Function to play the game
+      /**
+       * Plays the game for 5 rounds, comparing player and computer choices.
+       * Updates scores and displays results after each round.
+       */
+
+      function playGame() {
+        while (rounds < 5) {
+          function playRound(playerChoice, computerChoice) {
+            if (playerChoice === computerChoice) {
+              alert("It's a tie!");
+            } else if (
+              (playerChoice === "Scissors" && computerChoice === "Paper") ||
+              (playerChoice === "Paper" && computerChoice === "Stone") ||
+              (playerChoice === "Stone" && computerChoice === "Scissors")
+            ) {
+              playerScore++;
+              alert("The player wins!");
+            } else {
+              computerScore++;
+              alert("The computer wins!");
+            }
+            alert(
+              "Current Score:\nPlayer: " +
+                playerScore +
+                "\nComputer: " +
+                computerScore
+            );
+          }
+          playRound(playerChoice, computerChoice);
+          rounds++;
         }
-        alert(
-          "Current Score:\nPlayer: " +
-            playerScore +
-            "\nComputer: " +
-            computerScore
-        );
       }
-
-      playRound(playerChoice, computerChoice);
+      playGame();
     </script>
   </body>
 </html>
